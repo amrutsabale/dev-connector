@@ -1,3 +1,3 @@
 Steps
-1)mongoDB setup (cloud version)
-2)install dependencies & Basic Express setup
+1)Express & MongoDB setup
+
