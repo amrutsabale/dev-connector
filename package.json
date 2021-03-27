@@ -4,8 +4,8 @@
   "description": "Social network for developers community",
   "main": "server.js",
   "scripts": {
-    "start":"node server",
-    "server":"nodemon server"
+    "start": "node server",
+    "server": "nodemon server"
   },
   "author": "Amrut Sabale",
   "license": "MIT",
@@ -17,6 +17,7 @@
     "gravatar": "^1.8.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.2",
+    "normalize-url": "^5.3.0",
     "request": "^2.88.2"
   },
   "devDependencies": {
