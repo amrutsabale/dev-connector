@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Landing from "./components/layouts/Landing";
 import NavBar from "./components/layouts/NavBar";
@@ -8,8 +9,18 @@ import Login from "./components/auth/Login";
 import { Provider } from "react-redux";
 import store from "./store";
 import Alert from "./components/layouts/Alert";
+import { loadUser } from "./actions/authActions";
+import { setAuthToken } from "./utils/setAuthToken";
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 
 function App() {
+  useEffect(() => {
+    store.dispatch(loadUser());
+  }, []);
+
   return (
     <Provider store={store}>
       <Router>
