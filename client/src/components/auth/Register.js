@@ -1,7 +1,12 @@
 import { useState } from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { setAlert } from "../../actions/alertActions";
+import { register } from "../../actions/authActions";
 
-const Register = () => {
+import PropTypes from "prop-types";
+
+const Register = ({ setAlert, register }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -18,9 +23,9 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      console.log("Password do not match");
+      setAlert("Password do not match", "danger");
     } else {
-      console.log("success");
+      register({ name, email, password });
     }
   };
 
@@ -38,7 +43,7 @@ const Register = () => {
             name="name"
             value={name}
             onChange={handleChange}
-            required
+            // required
           />
         </div>
         <div className="form-group">
@@ -61,7 +66,7 @@ const Register = () => {
             name="password"
             value={password}
             onChange={handleChange}
-            minLength="6"
+            // minLength="6"
           />
         </div>
         <div className="form-group">
@@ -71,7 +76,7 @@ const Register = () => {
             name="confirmPassword"
             value={confirmPassword}
             onChange={handleChange}
-            minLength="6"
+            // minLength="6"
           />
         </div>
         <input type="submit" className="btn btn-primary" value="Register" />
@@ -83,4 +88,9 @@ const Register = () => {
   );
 };
 
-export default Register;
+Register.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+};
+
+// “object shorthand” form of mapDispatchToProps
+export default connect(null, { setAlert, register })(Register);
