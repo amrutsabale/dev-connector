@@ -8,6 +8,7 @@ import {
   AUTH_ERROR,
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
+  LOGOUT,
 } from "./types";
 
 // Load user
@@ -73,4 +74,9 @@ export const login = ({ email, password }) => async (dispatch) => {
     }
     dispatch({ type: LOGIN_FAILURE });
   }
+};
+
+// Logout/clear Profile
+export const logout = () => (dispatch) => {
+  dispatch({ type: LOGOUT });
 };
