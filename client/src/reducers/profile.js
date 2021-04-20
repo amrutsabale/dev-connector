@@ -15,12 +15,13 @@ const initialState = {
 
 const profile = (state = initialState, action) => {
   const { type, payload } = action;
+  console.log(action);
   switch (type) {
     case GET_PROFILE:
     case UPDATE_PROFILE:
       return {
         ...state,
-        profile: payload.data,
+        profile: payload,
         loading: false,
       };
 
