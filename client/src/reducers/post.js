@@ -1,9 +1,11 @@
 import {
+  ADD_COMMENT,
   ADD_POST,
   DELETE_POST,
   GET_POST,
   GET_POSTS,
   POST_ERROR,
+  REMOVE_COMMENT,
   UPDATE_LIKES,
 } from "../actions/types";
 
@@ -56,7 +58,21 @@ const post = (state = initialState, action) => {
         posts: state.posts.filter((post) => post._id !== payload),
         loading: false,
       };
-
+    case ADD_COMMENT:
+      return {
+        ...state,
+        post: { ...state.post, comments: payload },
+      };
+    case REMOVE_COMMENT:
+      return {
+        ...state,
+        post: {
+          ...state.post,
+          comments: state.post.comments.filter(
+            (comment) => comment._id !== payload
+          ),
+        },
+      };
     default:
       return state;
   }
