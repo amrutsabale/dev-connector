@@ -89,7 +89,6 @@ export const createProfile = (formData, history, edit = false) => async (
     };
 
     const res = await axios.post("/api/profile", formData, config);
-    console.log(res.data);
     dispatch({
       type: GET_PROFILE,
       payload: res.data,
@@ -176,7 +175,6 @@ export const deleteExperience = (id) => async (dispatch) => {
 
     dispatch(setAlert("Experience Removed", "success"));
   } catch (err) {
-    console.log("😂", err);
     dispatch({
       type: PROFILE_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status },

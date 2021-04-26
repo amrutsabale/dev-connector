@@ -31,7 +31,7 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
 
 Posts.propTypes = {
   getPosts: PropTypes.func.isRequired,
-  posts: PropTypes.object.isRequired,
+  posts: PropTypes.object,
 };
 
 const mapStateToProps = (state) => ({
