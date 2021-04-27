@@ -9,14 +9,19 @@ import { Provider } from "react-redux";
 import store from "./store";
 import { loadUser } from "./actions/authActions";
 import { setAuthToken } from "./utils/setAuthToken";
-
-if (localStorage.token) {
-  setAuthToken(localStorage.token);
-}
+import { LOGOUT } from "./actions/types";
 
 function App() {
   useEffect(() => {
+    if (localStorage.token) {
+      setAuthToken(localStorage.token);
+    }
     store.dispatch(loadUser());
+
+    // log user out from all tabs if they log out in one tab
+    window.addEventListener("storage", () => {
+      if (!localStorage.token) store.dispatch({ type: LOGOUT });
+    });
   }, []);
 
   return (
