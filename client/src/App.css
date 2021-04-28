@@ -133,6 +133,7 @@ img {
   padding: 0.4rem 1.3rem;
   font-size: 1rem;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
   margin-right: 0.5rem;
   transition: opacity 0.2s ease-in;
@@ -287,7 +288,10 @@ button {
 .form .social-input i.fa-linkedin {
   color: #0077b5;
 }
-
+.table {
+  width: 100%;
+  table-layout: fixed;
+}
 .table th,
 .table td {
   padding: 1rem;
