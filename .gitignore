@@ -4,7 +4,7 @@ config/default.json
 
 # production
 /build
-
+client/build
 # misc
 .env
 
