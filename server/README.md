@@ -1,4 +1,3 @@
-# dev-connector
-Social network for all developers community
+# dev-connector-server
 
-Demo: https://dev-connector-spa.herokuapp.com
+https://dev-connector-server.vercel.app
