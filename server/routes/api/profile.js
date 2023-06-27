@@ -4,7 +4,7 @@ const authMiddleware = require("../../middleware/auth");
 const { check, validationResult } = require("express-validator");
 const normalize = require("normalize-url");
 const request = require("request");
-const config = require("config");
+const config = require("../../config/env-config");
 const Profile = require("../../models/Profile");
 const User = require("../../models/User");
 const Post = require("../../models/Post");
@@ -171,15 +171,8 @@ router.put(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    const {
-      title,
-      company,
-      location,
-      from,
-      to,
-      current,
-      description,
-    } = req.body;
+    const { title, company, location, from, to, current, description } =
+      req.body;
 
     const newExp = {
       title,
@@ -241,15 +234,8 @@ router.put(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    const {
-      school,
-      degree,
-      fieldofstudy,
-      from,
-      to,
-      current,
-      description,
-    } = req.body;
+    const { school, degree, fieldofstudy, from, to, current, description } =
+      req.body;
 
     const newEdu = {
       school,
@@ -300,11 +286,7 @@ router.delete("/education/:edu_id", authMiddleware, async (req, res) => {
 router.get("/github/:username", async (req, res) => {
   try {
     const options = {
-      uri: `https://api.github.com/users/${
-        req.params.username
-      }/repos?per_page=5&sort=created:asc&client_id=${config.get(
-        "githubClientId"
-      )}&client_secret=${config.get("githubSecret")}`,
+      uri: `https://api.github.com/users/${req.params.username}/repos?per_page=5&sort=created:asc&client_id=${config["githubClientId"]}&client_secret=${config["githubSecret"]}`,
       method: "GET",
       headers: { "user-agent": "node.js" },
     };

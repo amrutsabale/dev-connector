@@ -1,6 +1,8 @@
 const express = require("express");
 const connectDB = require("./config/db");
 const path = require("path");
+const cors = require("cors");
+
 const app = express();
 
 // Connect MongoDB Database
@@ -8,6 +10,7 @@ connectDB();
 
 // Init Middleware
 app.use(express.json({ extended: false }));
+app.use(cors());
 
 // Define Routes
 app.use("/api/users", require("./routes/api/users"));
@@ -25,6 +28,6 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5500;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

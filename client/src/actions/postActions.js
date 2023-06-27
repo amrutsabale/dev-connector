@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "./../axiosConfig";
 import { setAlert } from "./alertActions";
 import {
   ADD_COMMENT,

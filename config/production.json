@@ -1,6 +1,0 @@
-{
-    "mongoURI":"mongodb+srv://amrut123:amrut123@devconnector.psdbf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-    "jwtSecret":"amrutsecrettoken",
-    "githubClientId":"6f20e8a6cdbe6d397818",
-    "githubSecret":"08e41c095e2f6061a9d51ad3e3f1e92c85f33480"
-}
